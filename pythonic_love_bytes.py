@@ -17,13 +17,19 @@ if sheyn_img_files:
         if diff < accepted_diff:
             selected = img
             accepted_diff = diff
-
+            
     eleyn_img = Image.open(my_img_url)
     sheyn_img = Image.open(selected)
-    couple_img = Image.new('RGB', (eleyn_img.width + sheyn_img.width, eleyn_img.height))
+    
+    max_width = max(eleyn_img.width, sheyn_img.width)
+    max_height = max(eleyn_img.height, sheyn_img.height)
+    
+    couple_img = Image.new('RGB', (max_width, max_height))
+    
     couple_img.paste(eleyn_img, (0, 0))
-    couple_img.paste(sheyn_img, (eleyn_img.width, 0))
+    couple_img.paste(sheyn_img, (0, max_height - sheyn_img.height))
+    
     couple_img.save('my_valentine_day_date.jpg')
     couple_img.show()
-else:
+    
     print("No .jpg files found in the ./sheyn/ directory.")
