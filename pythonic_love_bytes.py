@@ -6,14 +6,13 @@ my_img_url = r"C:\Users\Ellaine\Downloads\eleyn\ellaine1.jpg"
 my_hash = imagehash.average_hash(Image.open(my_img_url))
 
 sheyn = glob.glob('./sheyn/*.jpg')
-selected = r"C:\Users\Ellaine\Downloads\sheyn"[0]
-accepted_diff = 1000
-for img in sheyn:
-    img_hash = imagehash.average_hash(Image.open(img))
-    diff = img_hash - my_hash
-    if diff < accepted_diff:
-        selected = img
-        accepted_diff = diff
+for file in sheyn:
+    try:
+        Image.open(file)
+        print(f"Successfully opened {file}")
+    except FileNotFoundError:
+        print(f"Could not open {file}")
+
 
 eleyn_img = Image.open(my_img_url)
 sheyn_img = Image.open(selected)
