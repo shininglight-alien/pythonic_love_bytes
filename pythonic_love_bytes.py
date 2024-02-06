@@ -6,7 +6,7 @@ my_img_url = r"C:\Users\Ellaine\Downloads\eleyn\ellaine1.jpg"
 my_hash = imagehash.average_hash(Image.open(my_img_url))
 
 sheyn = glob.glob('./sheyn/*.jpg')
-selected = sheyn[0]
+selected = r"C:\Users\Ellaine\Downloads\sheyn"[0]
 accepted_diff = 1000
 for img in sheyn:
     img_hash = imagehash.average_hash(Image.open(img))
