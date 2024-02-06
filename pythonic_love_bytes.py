@@ -5,10 +5,13 @@ from PIL import Image
 my_img_url = r"C:\Users\Ellaine\Downloads\eleyn\ellaine1.jpg"
 my_hash = imagehash.average_hash(Image.open(my_img_url))
 
+# list of all picture files in sheyn
+sheyn_imgfiles = glob.glob(r"C:\Users\Ellaine\Downloads\sheyn\*")
+
 if r"C:\Users\Ellaine\Downloads\sheyn":
-    selected = r"C:\Users\Ellaine\Downloads\sheyn"[0]
+    selected = sheyn_imgfiles[0]
     accepted_diff = 1000
-    for img in r"C:\Users\Ellaine\Downloads\sheyn":
+    for img in sheyn_img_files:
         img_hash = imagehash.average_hash(Image.open(img))
         diff = img_hash - my_hash
         if diff < accepted_diff:
